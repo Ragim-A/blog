@@ -99,7 +99,6 @@
         $(document).ready(function () {
             $('.switchery').click(function () {
                 var input = $(this).prev();
-                console.log(input);
                 var value;
                 var id = input.data('id');
 
@@ -108,7 +107,7 @@
                 }else{
                     value = 'off';
                 }
-                console.log(value)
+
                 $.ajax({
                     type: 'GET',
                     url: '{{ route('admin.writer.change') }}',
@@ -117,9 +116,9 @@
                         value: value,
                         id:id,
                     },
-                    success:function(response) {
-                        console.log(response)
-                    }
+                    // success:function(response) {
+                    //     console.log(response)
+                    // }
                 })
             })
         })
