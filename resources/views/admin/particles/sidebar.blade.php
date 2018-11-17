@@ -10,21 +10,21 @@
                     <a href="{{route('admin.home')}}" class="waves-effect"><i class="ti-home"></i> <span> Ana Sayfa </span> </a>
                 </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Writers </span> <span class="menu-arrow"></span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Writers </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('admin.writer.index')}}">All Writer</a></li>
 {{--                        <li><a href="{{route('admin.category.create')}}">Add Category</a></li>--}}
                     </ul>
                 </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Categories </span> <span class="menu-arrow"></span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-view-list"></i> <span> Categories </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('admin.category.index')}}">All Category</a></li>
                         <li><a href="{{route('admin.category.create')}}">Add Category</a></li>
                     </ul>
                 </li>
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span> Posts </span> <span class="menu-arrow"></span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Posts </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.post.index') }}">All Post</a></li>
                         <li><a href="{{ route('admin.post.create') }}">Add Post</a></li>

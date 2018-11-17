@@ -10,9 +10,8 @@ use App\Http\Controllers\Controller;
 class WriterController extends Controller
 {
     //
-
     public function index(){
-        $users = User::all();
+        $users = User::where('level', '!=', 'admin')->get();
         return view('admin.pages.writer.index', compact('users'));
     }
 
@@ -29,5 +28,11 @@ class WriterController extends Controller
         return back()->with([
             'message' => 'Successfully deleted Category'
         ]);
+    }
+
+    public function changeStatus(Request $request){
+        $id = $request->id;
+        $status = ($request->value == 'on') ? 'writer' : 'user';
+        User::find($id)->update(['level' => $status ]);
     }
 }

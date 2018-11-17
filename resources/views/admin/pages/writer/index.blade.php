@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 @section('header')
-
+    <link href="{{ asset('assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" />
 @stop
+
 @section('content')
     <div class="content">
         <div class="container">
@@ -39,7 +40,7 @@
                                 <th data-toggle="true">Name</th>
                                 <th>Username</th>
                                 <th data-hide="phone">Email</th>
-                                <th data-hide="phone">Level</th>
+                                <th data-hide="phone">Writer Status</th>
                                 <th data-hide="phone, tablet">Manage</th>
                             </tr>
                             </thead>
@@ -64,11 +65,10 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>
-                                        {{ $user->level }}
+                                    <td style="padding-left: 30px;">
+                                        <input type="checkbox" class="writer-status" data-id="{{ $user->id }}" {{ $user->level == 'writer' ? 'checked' : null }} data-switchery="true" data-plugin="switchery" data-size="small" data-color="#81c868"/>
                                     </td>
-                                    <td>
-                                        {{--<a href="{{ route('admin.category.edit', $category->id) }}" class="table-action-btn"><i class="md md-edit"></i></a>--}}
+                                    <td style="padding-left: 23px;">
                                         <a href="{{ route('admin.writer.delete', $user->id) }}" onclick="return confirm('do you sure want to delete this category')" class="table-action-btn"><i class="md md-close"></i></a>
                                     </td>
                                 </tr>
@@ -94,5 +94,34 @@
     </div>
 @stop
 @section('footer')
+    <script src="{{ asset('assets/plugins/switchery/js/switchery.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.switchery').click(function () {
+                var input = $(this).prev();
+                console.log(input);
+                var value;
+                var id = input.data('id');
 
+                if (input.prop("checked") == true ){
+                    value = 'on';
+                }else{
+                    value = 'off';
+                }
+                console.log(value)
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('admin.writer.change') }}',
+                    dataType: "json",
+                    data: {
+                        value: value,
+                        id:id,
+                    },
+                    success:function(response) {
+                        console.log(response)
+                    }
+                })
+            })
+        })
+    </script>
 @stop
