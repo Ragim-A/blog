@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Controller@index');
+Route::get('/posts/{id}', 'Controller@posts')->name('posts');
 
 Auth::routes();
 

@@ -25,6 +25,7 @@ class PostValidation extends FormRequest
     {
         return [
             'img_url' => 'required|image',
+            'category' => 'required',
             'name' => 'required|min:5',
             'content' => 'required|min:20'
         ];

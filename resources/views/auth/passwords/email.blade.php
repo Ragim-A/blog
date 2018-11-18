@@ -1,7 +1,7 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<div class="container" style="transform: translateY(70%);">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -44,4 +44,4 @@
         </div>
     </div>
 </div>
-@endsection
+
