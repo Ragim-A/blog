@@ -22,7 +22,6 @@ class WriterController extends Controller
             @unlink('images/' . $post->photo);
         }
 
-        Post::where('user_id',$id)->delete();
         User::destroy($id);
 
         return back()->with([

@@ -12,12 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 
 Route::group(['namespace' => 'Admin','middleware'=> ['auth','admin'],'prefix' => 'admin', 'as' => 'admin.'], function (){
@@ -47,5 +45,15 @@ Route::group(['namespace' => 'Admin','middleware'=> ['auth','admin'],'prefix' =>
         Route::get('/delete/{id}', 'WriterController@delete')->name('delete');
         Route::get('/change', 'WriterController@changeStatus')->name('change');
     });
+});
+
+Route::group(['namespace' => 'Writer', 'middleware' => ['auth', 'writer'], 'prefix' => 'post', 'as' => 'post.'], function (){
+    Route::get('/', 'PostController@index')->name('index');
+    Route::get('/create', 'PostController@create')->name('create');
+    Route::post('/store', 'PostController@store')->name('store');
+    Route::get('/edit/{id}', 'PostController@edit')->name('edit');
+    Route::post('/update/{id}', 'PostController@update')->name('update');
+    Route::get('/delete/{id}','PostController@delete')->name('delete');
+    Route::get('/soft/{id}','PostController@softdelete')->name('softdelete');
 });
 

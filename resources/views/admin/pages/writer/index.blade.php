@@ -66,7 +66,10 @@
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td style="padding-left: 30px;">
-                                        <input type="checkbox" class="writer-status" data-id="{{ $user->id }}" {{ $user->level == 'writer' ? 'checked' : null }} data-switchery="true" data-plugin="switchery" data-size="small" data-color="#81c868"/>
+                                        <form action=""></form>
+                                        @csrf
+                                            <input type="checkbox" class="writer-status" data-id="{{ $user->id }}" {{ $user->level == 'writer' ? 'checked' : null }} data-switchery="true" data-plugin="switchery" data-size="small" data-color="#81c868"/>
+                                        <form action=""></form>
                                     </td>
                                     <td style="padding-left: 23px;">
                                         <a href="{{ route('admin.writer.delete', $user->id) }}" onclick="return confirm('do you sure want to delete this category')" class="table-action-btn"><i class="md md-close"></i></a>
@@ -87,7 +90,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div> <!-- container -->
 

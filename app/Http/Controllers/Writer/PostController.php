@@ -1,33 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Writer;
 
-
-use App\Http\Requests\PostValidation;
 use App\Models\Category;
-use App\Models\CategoryPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostValidation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
-
+use App\Models\CategoryPost;
 
 class PostController extends Controller
 {
+    //
     public function index(){
-
-        $posts = Post::all();
-        return view('admin.pages.post.index', compact('posts'));
+        $id = Auth::user()->id;
+        $user_posts = Post::where('user_id', $id)->get();
+        return view('writer.index', compact('user_posts'));
     }
 
     public function create(){
-        $categoriesName = Category::all();
-        return  view('admin.pages.post.create', compact('categoriesName'));
+        $categories = Category::all();
+        return view('writer.create', compact('categories'));
     }
 
     public function store(PostValidation $request){
-
         /**
          *  Add Post to Post Table
          */
@@ -43,7 +41,7 @@ class PostController extends Controller
         }
 
         $values['slug'] = str_replace(' ', '-', $request->name);
-        $values['user_id'] = Auth::user()->id; 
+        $values['user_id'] = Auth::user()->id;
 
         $post = Post::create($values);
 
@@ -66,11 +64,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function  edit($id){
+    public function edit($id){
 
         $post  = Post::find($id);
         $categoriesName = Category::all();
-        return view('admin.pages.post.edit', compact('post','categoriesName'));
+        return view('writer.edit', compact('post','categoriesName'));
     }
 
     public function update(Request $request, $id){
@@ -112,14 +110,14 @@ class PostController extends Controller
          *
          */
 
-         CategoryPost::where('post_id', $id)->delete();
+        CategoryPost::where('post_id', $id)->delete();
 
-         foreach ($values['category'] as $value){
-             CategoryPost::create([
+        foreach ($values['category'] as $value){
+            CategoryPost::create([
                 'category_id' => $value,
                 'post_id' => $id
-             ]);
-         }
+            ]);
+        }
 
         return back()->with([
             'message' => 'Successfully updated Post'

@@ -13,7 +13,6 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Writers </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('admin.writer.index')}}">All Writer</a></li>
-{{--                        <li><a href="{{route('admin.category.create')}}">Add Category</a></li>--}}
                     </ul>
                 </li>
                 <li class="has_sub">

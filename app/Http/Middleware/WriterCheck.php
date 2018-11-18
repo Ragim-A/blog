@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdminCheck
+class WriterCheck
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,10 @@ class AdminCheck
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->level() == 'admin') {
+        if (Auth::check() && Auth::user()->level == 'writer'){
             return $next($request);
         }
-        return redirect('/');
+
+        redirect('/');
     }
 }
