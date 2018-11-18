@@ -8,15 +8,15 @@
             <div class="col-md-4">
                 <article class="card">
                     <header class="card-header">
-                        <a href="post-image.html">
+                        <a href="{{ route('about', preg_replace("/!?/", "", $post->slug)) }}">
                             <h4 class="card-title">{{ $post->name }}</h4>
                         </a>
                     </header>
-                    <a href="post-image.html">
+                    <a href="{{ route('about', $post->slug) }}">
                         <img class="card-img" src="{{ asset('images/'. $post->photo) }}" alt="" />
                     </a>
                     <div class="card-body">
-                        <p class="card-text">{{ substr($post->content, 0, 180) }}...</p>
+                        <p class="card-text">{{ strip_tags(substr($post->content, 0, 180)) }}...</p>
                     </div>
                 </article>
             </div>

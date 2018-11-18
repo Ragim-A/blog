@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Blog') }}</title>
+    <title>Blog</title>
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -42,7 +42,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @foreach($categories as $category)
+                                @foreach(categories() as $category)
                                     <li><a href="{{ route('posts', $category->id) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>

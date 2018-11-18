@@ -9,19 +9,6 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="btn-group pull-right m-t-15">
-                        <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light"
-                                data-toggle="dropdown" aria-expanded="false">Settings <span class="m-l-5"><i
-                                        class="fa fa-cog"></i></span></button>
-                        <ul class="dropdown-menu drop-menu-right" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-
                     <h1 class="page-title">Blank Page</h1>
                     <ol class="breadcrumb">
 
@@ -60,7 +47,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Content*</label>
-                                <textarea name="content" required class="form-control">{{ $post->content }}</textarea>
+                                <textarea id="elm1" name="content" required class="form-control">{{ $post->content }}</textarea>
                             </div>
 
                             <div class="form-group text-right m-b-0">
@@ -79,6 +66,36 @@
     </div>
 @stop
 @section('footer')
+    {{-- TEXTAREA EDITOR--}}
+    <script src="{{ asset('assets/plugins/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if($("#elm1").length > 0){
+                tinymce.init({
+                    selector: "textarea#elm1",
+                    theme: "modern",
+                    height:300,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                    style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    ]
+                });
+            }
+        });
+    </script>
+    {{-- TEXTAREA EDITOR--}}
+
     <script src="{{ asset('assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('assets/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/plugins/jquery-quicksearch/jquery.quicksearch.js') }}"></script>

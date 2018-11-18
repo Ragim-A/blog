@@ -18,14 +18,17 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        $categories = Category::all();
         $posts = Post::orderBy('id', 'desc')->paginate(6);
-        return view('home', compact('posts', 'categories'));
+        return view('home', compact('posts'));
     }
 
     public function posts($id){
-        $categories = Category::all();
         $posts = Category::find($id);
-        return view('posts', compact('categories', 'posts'));
+        return view('posts', compact( 'posts'));
+    }
+
+    public function about($slug){
+        $post =  Post::where('slug', $slug)->first();
+        return view('about-post', compact('post'));
     }
 }

@@ -1,0 +1,29 @@
+[33mcommit 36822c826117edee1f7ca9f491d483182c6d0eb0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: ragim <ragim1753@gmail.com>
+Date:   Sun Nov 18 22:28:56 2018 +0400
+
+    done index & post pages
+
+[33mcommit 9ae9315a8c06dacc9dbbd5c48febf00d5a3c3211[m[33m ([m[1;31mrepo/master[m[33m)[m
+Author: ragim <ragim1753@gmail.com>
+Date:   Sun Nov 18 07:25:57 2018 +0400
+
+    done writer post CRUD
+
+[33mcommit 73e19c779aed5bc7276b4d4940ab6ac1878c754e[m
+Author: ragim <ragim1753@gmail.com>
+Date:   Sat Nov 17 04:13:32 2018 +0400
+
+    remove js
+
+[33mcommit 4bd461c66d6d1e2346c6315d2de4ff22e6be5e61[m
+Author: ragim <ragim1753@gmail.com>
+Date:   Sat Nov 17 04:10:16 2018 +0400
+
+    list of writer
+
+[33mcommit ef79bb8e3ccbacaf8f0b1a87edcd55e12d014c8b[m
+Author: ragim <ragim1753@gmail.com>
+Date:   Fri Nov 16 17:06:50 2018 +0400
+
+    first commit
