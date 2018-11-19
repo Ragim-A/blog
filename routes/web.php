@@ -46,7 +46,7 @@ Route::group(['namespace' => 'Admin','middleware'=> ['auth','admin'],'prefix' =>
     Route::group(['prefix' => 'writer', 'as' => 'writer.'], function (){
         Route::get('/', 'WriterController@index')->name('index');
         Route::get('/delete/{id}', 'WriterController@delete')->name('delete');
-        Route::get('/change', 'WriterController@changeStatus')->name('change');
+        Route::post('/change', 'WriterController@changeStatus')->name('change');
     });
 });
 

@@ -53,10 +53,10 @@
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td style="padding-left: 30px;">
-                                        <form action=""></form>
-                                        @csrf
+                                        <form action="{{ route('admin.writer.change') }}" method="POST">
+                                            @csrf
                                             <input type="checkbox" class="writer-status" data-id="{{ $user->id }}" {{ $user->level == 'writer' ? 'checked' : null }} data-switchery="true" data-plugin="switchery" data-size="small" data-color="#81c868"/>
-                                        <form action=""></form>
+                                        </form>
                                     </td>
                                     <td style="padding-left: 23px;">
                                         <a href="{{ route('admin.writer.delete', $user->id) }}" onclick="return confirm('do you sure want to delete this category')" class="table-action-btn"><i class="md md-close"></i></a>
@@ -98,16 +98,20 @@
                 }
 
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '{{ route('admin.writer.change') }}',
-                    dataType: "json",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     data: {
+                        _token: "{{ csrf_token() }}",
+                        dataType:'json',
                         value: value,
                         id:id,
                     },
-                    // success:function(response) {
-                    //     console.log(response)
-                    // }
+                    success:function(response) {
+                        console.log(response)
+                    }
                 })
             })
         })
