@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 03:09 AM
+-- Generation Time: Nov 19, 2018 at 04:30 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -186,9 +186,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
-(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$npgvBaBdsl6DGXruy9y5j.2y2qJ/V15VrDtKRQ.O492BREzEukZay', 'TSDRBDIWx9uBhY5esjBRrKz2Iqk8DV9yQm587zkVXX5iMUJBPzDiOh1TAXYa', '2018-11-12 16:17:40', '2018-11-12 16:17:40', 'admin'),
-(5, 'user', 'user', 'user@gmail.com', NULL, '$2y$10$J69C/LmKJ6wBGkovywH73OWQ9blHjt1pTUIWR8hJ6nvI05aB2iO6q', 'd7DvPxmlAKG73P5wiTBQtdpiDonJlowb3ErskuMlWQdQZs0u5ALSUlcUEf45', '2018-11-16 19:32:22', '2018-11-18 21:22:13', 'writer'),
-(7, 'user3', 'User3', 'user3@gmail.com', NULL, '$2y$10$IiV7wCjQ3yER8NH7xEOVV.jgxiScPog4TwsQ.mZD6ejPkXbBSMOci', 'DDOVpU15PUGwSh4zk6EPvpqY8YDrM78y1ioIa1fkZRov0TiPzXU58CEJnD2c', '2018-11-16 19:53:10', '2018-11-18 21:22:14', 'user');
+(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$npgvBaBdsl6DGXruy9y5j.2y2qJ/V15VrDtKRQ.O492BREzEukZay', 'HqaWNMMa0FqinI93NcBePeOqbjwgCr77di2KbD0dc5bVJ1pM2fgxarKBTknD', '2018-11-12 16:17:40', '2018-11-12 16:17:40', 'admin'),
+(5, 'user', 'user', 'user@gmail.com', NULL, '$2y$10$J69C/LmKJ6wBGkovywH73OWQ9blHjt1pTUIWR8hJ6nvI05aB2iO6q', 'd7DvPxmlAKG73P5wiTBQtdpiDonJlowb3ErskuMlWQdQZs0u5ALSUlcUEf45', '2018-11-16 19:32:22', '2018-11-18 23:27:11', 'writer'),
+(7, 'user3', 'User3', 'user3@gmail.com', NULL, '$2y$10$IiV7wCjQ3yER8NH7xEOVV.jgxiScPog4TwsQ.mZD6ejPkXbBSMOci', 'DDOVpU15PUGwSh4zk6EPvpqY8YDrM78y1ioIa1fkZRov0TiPzXU58CEJnD2c', '2018-11-16 19:53:10', '2018-11-18 23:27:13', 'user');
 
 --
 -- Indexes for dumped tables
