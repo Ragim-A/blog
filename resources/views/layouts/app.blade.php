@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Brand</a>
+                    <a class="navbar-brand" href="/">BLOG</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,10 +55,7 @@
                         <div class="form-group">
                             <input type="text" name="search" class="form-control" placeholder="Search">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
-
-
 
 
                     <ul class="nav navbar-nav navbar-right">
@@ -76,9 +73,9 @@
                     @else
                          <li>
                              @if(Auth::user()->level == 'admin')
-                                <a href="/admin">Manage Site</a>
+                                <a target="_blank" href="/admin">Manage Site</a>
                              @elseif(Auth::user()->level == 'writer')
-                                 <a href="{{ route('post.index') }}">Add new Post</a>
+                                 <a target="_blank" href="{{ route('post.index') }}">Add new Post</a>
                              @endif
                          </li>
                          <li class="dropdown">

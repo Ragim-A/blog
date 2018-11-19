@@ -9,6 +9,13 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
+                    <div class="btn-group pull-right m-t-15">
+                        <a href="{{ route('admin.post.index') }}" style="color: #fff">
+                            <button type="button" class="btn btn-default">
+                                Back to Post<span class="m-l-5"><i class="ti-back-right"></i></span>
+                            </button>
+                        </a>
+                    </div>
                     <h1 class="page-title">Blank Page</h1>
                     <ol class="breadcrumb">
 

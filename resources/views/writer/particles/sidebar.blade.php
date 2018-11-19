@@ -8,8 +8,9 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Posts </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('post.index') }}">All Post</a></li>
+                        <li><a href="{{ route('post.index') }}">All Posts</a></li>
                         <li><a href="{{ route('post.create') }}">Add Post</a></li>
+                        <li><a href="{{ route('post.deleted') }}">Deleted Posts</a></li>
                     </ul>
                 </li>
             </ul>

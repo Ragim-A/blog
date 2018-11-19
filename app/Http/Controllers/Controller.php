@@ -37,7 +37,7 @@ class Controller extends BaseController
         $posts = Post::where('name', 'LIKE', "%$search%")
                         ->orWhere('content', 'LIKE', "%$search%")
                         ->get();
-        return view('search', compact('posts'));
 
+        return view('search', compact('posts'));
     }
 }

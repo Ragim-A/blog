@@ -145,4 +145,16 @@ class PostController extends Controller
             'message' => 'Successfully deleted Category'
         ]);
     }
+
+    public function softdeletedpost(){
+        $posts = Post::where('deleted_at', '!=', null)->withTrashed()->get();
+        return view('admin.pages.post.delete', compact('posts'));
+    }
+
+    public function restore($id){
+        Post::withTrashed()->find($id)->restore();
+        return back()->with([
+            'message' => 'Successfully deleted Category'
+        ]);
+    }
 }

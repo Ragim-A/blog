@@ -39,6 +39,8 @@ Route::group(['namespace' => 'Admin','middleware'=> ['auth','admin'],'prefix' =>
         Route::post('/update/{id}','PostController@update')->name('update');
         Route::get('/delete/{id}','PostController@delete')->name('delete');
         Route::get('/soft/{id}','PostController@softdelete')->name('softdelete');
+        Route::get('/deleted','PostController@softdeletedpost')->name('deleted');
+        Route::get('/restore/{id}','PostController@restore')->name('restore');
     });
 
     Route::group(['prefix' => 'writer', 'as' => 'writer.'], function (){
@@ -56,5 +58,7 @@ Route::group(['namespace' => 'Writer', 'middleware' => ['auth', 'writer'], 'pref
     Route::post('/update/{id}', 'PostController@update')->name('update');
     Route::get('/delete/{id}','PostController@delete')->name('delete');
     Route::get('/soft/{id}','PostController@softdelete')->name('softdelete');
+    Route::get('/deleted','PostController@softdeletedpost')->name('deleted');
+    Route::get('/restore/{id}','PostController@restore')->name('restore');
 });
 
