@@ -14,7 +14,7 @@
                         <img style="max-height: 600px" class="card-img" src="{{ asset('images/' . $post->photo) }}" alt="" />
                     </a>
                     <div class="card-body">
-                        <p>{{ $post->content }}</p>
+                        <p>{{ strip_tags($post->content) }}</p>
                     </div>
                 </article>
             </div>

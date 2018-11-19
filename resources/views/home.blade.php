@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <article class="card">
                     <header class="card-header">
-                        <a href="{{ route('about', preg_replace("/!?/", "", $post->slug)) }}">
+                        <a href="{{ route('about', $post->slug) }}">
                             <h4 class="card-title">{{ $post->name }}</h4>
                         </a>
                     </header>

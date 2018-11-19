@@ -14,6 +14,7 @@
 Route::get('/', 'Controller@index');
 Route::get('/posts/{id}', 'Controller@posts')->name('posts');
 Route::get('/about-post/{slug}', 'Controller@about')->name('about');
+Route::post('/search', 'Controller@search')->name('search');
 
 Auth::routes();
 

@@ -28,7 +28,16 @@ class Controller extends BaseController
     }
 
     public function about($slug){
-        $post =  Post::where('slug', $slug)->first();
+        $post =  Post::where('slug', 'LIKE', "%$slug%")->first();
         return view('about-post', compact('post'));
+    }
+
+    public function search(Request $request){
+        $search = $request->search;
+        $posts = Post::where('name', 'LIKE', "%$search%")
+                        ->orWhere('content', 'LIKE', "%$search%")
+                        ->get();
+        return view('search', compact('posts'));
+
     }
 }
